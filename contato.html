@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larissa Lorayne | Contato</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* --- PÁGINA DE CONTATO --- */
+
+.contact-container {
+    padding: 150px 8% 50px;
+    background-color: #fdf4e3; /* Old Lace */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #134686; /* Cerulean */
+}
+
+.contact-header h1 span {
+    color: #ed3f27; /* Red */
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Coluna menor para info, maior para form */
+    gap: 50px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* Blocos de Informação */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    border-bottom: 4px solid #feb21a; /* Mustard */
+}
+
+.info-box i {
+    font-size: 1.5rem;
+    color: #ed3f27;
+    margin-bottom: 10px;
+}
+
+.info-box h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+/* Formulário Estilizado */
+.contact-form {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fcfcfc;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: #134686;
+    box-shadow: 0 0 0 3px rgba(19, 70, 134, 0.1);
+}
+
+.contact-form button {
+    border: none;
+    cursor: pointer;
+    align-self: flex-start; /* Botão não ocupa a largura toda */
+}
+
+/* Responsividade */
+@media (max-width: 800px) {
+    .contact-content { grid-template-columns: 1fr; }
+    .input-group { grid-template-columns: 1fr; }
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">LARISSA<span>LORAYNE</span></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="contato.html" class="active">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contact-container">
+        <div class="contact-header">
+            <span class="tagline">VAMOS CONVERSAR?</span>
+            <h1>Entre em <span>Contato</span></h1>
+            <p>Seja para um projeto, uma dúvida ou apenas para dizer oi!</p>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="info-box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <h3>E-mail</h3>
+                    <p>larissalorayneee@gmail.com</p>
+                </div>
+                <div class="info-box">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/larissa-lorayne-santos-gomes-797abb3b3" target="_blank" style="text-decoration: none; color: inherit; font-weight: bold;">
+                    Ver meu Perfil
+                    </a>
+                </div>
+                <div class="info-box">
+                    <i class="fa-brands fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p>github.com/seu-usuario</p>
+                </div>
+            </div>
+
+            <form action="https://formspree.io/f/mnjwypwz" method="POST" class="contact-form">
+    <div class="input-group">
+        <input type="text" name="nome" placeholder="Seu Nome" required>
+        <input type="email" name="email" placeholder="Seu E-mail" required>
+    </div>
+    <input type="text" name="assunto" placeholder="Assunto" required>
+    <textarea name="mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
+    <button type="submit" class="btn-primary">Enviar Mensagem</button>
+</form>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+/* Configurações Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --cor-principal: #A65D47;   /* Terracota */
+    --cor-secundaria: #D9BBA9;  /* Bege Médio */
+    --cor-fundo: #F2E8DF;       /* Off-white/Nude claro */
+    --cor-texto: #262626;       /* Grafite escuro */
+    --cor-branco: #FFFFFF;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    min-height: 100vh;
+}
+
+/* Navegação com transparência elegante */
+header {
+    padding: 20px 10%;
+    background: rgba(242, 232, 223, 0.9); /* Cor de fundo com transparência */
+    backdrop-filter: blur(5px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--cor-texto);
+}
+
+.logo span {
+    color: var(--cor-principal);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 35px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: 400;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: var(--cor-principal);
+}
+
+/* Garante que a seção principal ocupe a tela toda sem rolar */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: flex-start; /* Alinha ao início para controlar o preenchimento */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    /* Em vez de width: 50%, usamos um max-width para não esmagar o texto */
+    width: 100%;
+    max-width: 600px; 
+    
+    /* Centraliza na metade esquerda da tela */
+    margin-left: 10%; 
+    
+    /* Garante que o texto fique acima de qualquer fundo */
+    z-index: 2;
+    position: relative;
+}
+
+/* Faz a imagem dos azulejos preencher todo o espaço sem esticar */
+.hero-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ESSENCIAL: Preenche o espaço mantendo a proporção */
+    object-position: center; /* Centraliza o desenho dos azulejos */
+    
+    /* O recorte que você pediu (exemplo de onda orgânica) */
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 75%, 15% 50%, 0% 25%);
+}
+
+/* A forma colorida que fica logo atrás para dar o efeito de borda */
+.wave-shape {
+    position: absolute;
+    left: -2px; /* Pequeno ajuste para a borda aparecer */
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--mustard); /* Ou a cor que você definiu no :root */
+    z-index: -1;
+    clip-path: polygon(24% 0%, 100% 0%, 100% 100%, 24% 100%, -1% 75%, 14% 50%, -1% 25%);
+}
+.greeting {
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: var(--cor-principal);
+    margin-bottom: 15px;
+    font-size: 0.8rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--cor-texto);
+}
+
+h1 span {
+    color: var(--cor-principal);
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.description {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #595959;
+}
+
+/* Botões Modernos */
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-primary {
+    background-color: var(--cor-principal);
+    color: var(--cor-branco);
+    padding: 14px 35px;
+    text-decoration: none;
+    border-radius: 50px; /* Botão arredondado fica mais moderno nessa paleta */
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary {
+    border: 1px solid var(--cor-principal);
+    color: var(--cor-principal);
+    padding: 14px 35px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #8c4b38; /* Um terracota um pouco mais escuro para o hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(166, 93, 71, 0.3);
+}
+
+.btn-secondary:hover {
+    background-color: var(--cor-principal);
+    color: var(--cor-branco);
+    transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    .description { font-size: 0.9rem; }
+    nav ul { display: none; }
+}

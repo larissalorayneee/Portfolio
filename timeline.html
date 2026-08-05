@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larissa Lorayne | Timeline</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .timeline-container {
+            padding: 120px 8% 50px;
+            background-color: var(--old-lace);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .timeline-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--dark-cerulean);
+        }
+
+        /* A LINHA CENTRAL */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--mustard);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        /* CONTAINER DOS ITENS */
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        /* Círculos na linha central */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: var(--old-lace);
+            border: 3px solid var(--cg-red);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Alinhamento Esquerda e Direita */
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; text-align: left; }
+
+        .right::after { left: -8px; }
+
+        /* O "AZULEJO" DE CONTEÚDO */
+        .content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .content:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(19, 70, 134, 0.1);
+        }
+
+        .content h3 {
+            color: var(--dark-cerulean);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .content .date {
+            color: var(--cg-red);
+            font-weight: 700;
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .content p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Responsividade para Celular */
+        @media screen and (max-width: 600px) {
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left; }
+            .timeline-item::after { left: 23px; }
+            .right { left: 0%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">LARISSA<span>LORAYNE</span></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="timeline.html" class="active">Timeline</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="timeline-container">
+        <div class="timeline-header">
+            <span class="section-tag" style="color: var(--cg-red); font-weight: 700; letter-spacing: 2px;">TRAJETÓRIA</span>
+            <h1>Formação</h1>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="content">
+                    <span class="date">2026 - Presente</span>
+                    <h3>Jovem Aprendiz Flex</h3>
+                    <p> Alimentador de Linha de Produção na FLEXTRONICS INTERNATIONAL TECNOLOGIA LTDA pela empresa ITEMM em Jaguariúna.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="content">
+                    <span class="date">2023 - 2025</span>
+                    <h3>Cursada no IFSP HTO</h3>
+                    <p>Formada no Ensino Médio com  Técnico em Informática pelo Instituto Federal de Hortolândia.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item left">
+                <div class="content">
+                    <span class="date">2019 - 2022</span>
+                    <h3>Estudante do E.E. Profª Leila Mara avelino</h3>
+                    <p>Formada no Ensino Fundamental II do 6° ao 9° Ano em Sumaré </p>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="content">
+                    <span class="date">2013 - 2018</span>
+                    <h3>Estudante do E.E.E.I Prof° Rubens OScar Guelli</h3>
+                    <p>Formada no Ensino Fundamnetal I do 2° ao 5° Ano em Sumaré.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

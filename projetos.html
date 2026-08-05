@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larissa Lorayne | Projetos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .projects-container {
+            padding: 120px 8% 50px;
+            background-color: var(--old-lace);
+            min-height: 100vh;
+        }
+
+        .projects-header {
+            margin-bottom: 40px;
+        }
+
+        .projects-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--dark-cerulean);
+        }
+
+        /* BENTO GRID SETUP */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 300px);
+            gap: 20px;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            background-color: var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Definindo tamanhos diferentes para os "azulejos" de projetos */
+        .card-large { grid-column: span 2; grid-row: span 2; }
+        .card-wide { grid-column: span 2; }
+        .card-tall { grid-row: span 1; }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        /* Overlay com informações do projeto */
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(19, 70, 134, 0.9));
+            padding: 30px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        /* Aplica o efeito hover original apenas nos cards que NÃO são o interativo */
+        .project-card:not(.card-container):hover .project-overlay {
+            transform: translateY(0);
+        }
+
+        .project-card:not(.card-container):hover img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* ========================================================== */
+        /* INTEGRAÇÃO DO CSS DO SEU CARTÃO INTERATIVO 3D        */
+        /* ========================================================== */
+        
+        /* Área com perspectiva 3D adaptada para a Grid */
+        .card-container {
+            perspective: 1200px;
+            background: transparent;
+            box-shadow: none;
+            overflow: visible; /* Permite que o efeito 3D não seja cortado */
+        }
+
+        /* Elemento interno que realiza o giro */
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+        }
+
+        /* Classe acionada pelo JS */
+        .card-container.flip .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Faces do cartão */
+        .card-face {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border-radius: 15px;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+
+            /* CONFIGURAÇÃO CORRETA PARA NÃO PIXELAR */
+            background-image: url('assets/card.png');
+            background-repeat: no-repeat;
+            background-size: cover; /* Faz a imagem cobrir o espaço mantendo a proporção e a nitidez */
+            background-position: center; /* Mantém o centro da imagem focado */
+        }
+
+        /* Frente */
+        .front {
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .front h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color:white;
+            text-shadow: 0 2px 4px rgb(69, 0, 0); /* Adicionado sombra para destacar o texto sobre o background */
+        }
+
+        .front p {
+            opacity: 0.9;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Efeito brilho */
+        .front::before,
+        .back::before {
+            content: "";
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            transform: rotate(25deg);
+            pointer-events: none;
+        }
+
+        /* Verso */
+        .back {
+            transform: rotateY(180deg);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .back h2 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .info {
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .info p {
+            margin: 8px 0;
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        /* Hover suave integrado ao mecanismo de rotação */
+        .card-container:hover .card-inner {
+            transform: scale(1.03);
+        }
+
+        .card-container.flip:hover .card-inner {
+            transform: rotateY(180deg) scale(1.03);
+        }
+
+        /* Responsividade */
+        @media (max-width: 900px) {
+            .bento-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+            }
+            .card-large, .card-wide { grid-column: span 2; }
+            .project-card { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">LARISSA<span>LORAYNE</span></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projetos.html" class="active">Projetos</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="projects-container">
+        <div class="projects-header">
+            <span class="section-tag" style="color: var(--cg-red); font-weight: 700; letter-spacing: 2px;">PORTFÓLIO</span>
+            <h1>Projetos em Destaque</h1>
+        </div>
+
+        <div class="bento-grid">
+            <div class="project-card card-large">
+                <img src="assets/img.jpg" alt="Projeto 1">
+                <div class="project-overlay">
+                    <h3>Moodboard de Arte</h3>
+                    <p>Uma plataforma completa com React e Node.js.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">API</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card card-wide card-container" id="card">
+                <div class="card-inner">
+
+                    <div class="card-face front">
+                        <h1>LARISSA LORAYNE</h1>
+                        <p>Cartão Interativo</p>
+                    </div>
+
+                    <div class="card-face back">
+                        <h2>Contatos</h2>
+                        <div class="info">
+                            <p>📧 larissalorayneee@gmail.com</p>
+                            <p>📱 +55(19)99266-1833</p>
+                            <p>🌐 https://www.linkedin.com/in/larissa-ls-gomes</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1000" alt="Projeto 3">
+                <div class="project-overlay">
+                    <h3>App de Clima</h3>
+                    <div class="project-tags">
+                        <span class="tag">JS</span>
+                        <span class="tag">API</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&q=80&w=1000" alt="Projeto 4">
+                <div class="project-overlay">
+                    <h3>Interface de Blog</h3>
+                    <div class="project-tags">
+                        <span class="tag">CSS Grid</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const card = document.getElementById("card");
+
+        card.addEventListener("click", () => {
+            card.classList.toggle("flip");
+        });
+    </script>
+
+</body>
+</html>

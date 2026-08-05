@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim | Identidade</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Layout da Página Sobre */
+.sobre-container {
+    padding: 120px 10% 50px;
+    min-height: 100vh;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 200px;
+    gap: 20px;
+}
+
+.grid-item {
+    background: var(--cor-branco);
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Customizando os blocos */
+.foto-perfil {
+    grid-row: span 2; /* Ocupa duas linhas */
+    padding: 0;
+    overflow: hidden;
+}
+
+.foto-perfil img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.texto-bio {
+    grid-column: span 2; /* Ocupa duas colunas */
+    background-color: var(--dark-cerulean);
+    color: var(--old-lace);
+}
+
+.texto-bio h2 { color: var(--mustard); margin-bottom: 15px; }
+
+.um { background-color: var(--cg-red); color: var(--text-color); }
+.dois { background-color: var(--mustard); color: var(--text-color); }
+.três { background-color: var(--old-lace); border: 2px solid var(--dark-cerulean); }
+
+/* Responsividade para celular */
+@media (max-width: 900px) {
+    .grid-layout {
+        grid-template-columns: 1fr; /* Vira uma coluna só no celular */
+        grid-auto-rows: auto;
+    }
+    .foto-perfil, .texto-bio { grid-column: auto; grid-row: auto; }
+}
+    </style>
+</head>
+<body>
+
+    <header>
+            <nav>
+            <div class="logo">LARISSA<span>LORAYNE</span></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html" class="active">Sobre</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="sobre-container">
+        <div class="grid-layout">
+            <div class="grid-item foto-perfil">
+                <img src="assets/ft4.png" alt="Minha Foto">
+            </div>
+
+            <div class="grid-item texto-bio">
+                <h2>Sobre Mim</h2>
+                <p>
+                    Poeta, fotógrafa e entusiasta do design, estou em constante transição entre a arte e a tecnologia. Atualmente, foco meu desenvolvimento em front-end (HTML, CSS e JavaScript) para dar vida a projetos que priorizam a estética e a experiência do usuário. Trago comigo a disciplina e a riqueza cultural da percussão afro, aplicando um olhar crítico e sensível em tudo o que construo. Busco oportunidades onde eu possa somar minha bagagem cultural ao desenvolvimento de interfaces criativas.
+                </p>
+            </div>
+
+            <div class="grid-item um">
+                <h3>Experiências</h3> <br>
+                <ul>
+                    <li>Aprendiz alimentador de linha de produção na FLEXTRONICS INTERNATIONAL TECNOLOGIA LTDA pela empresa ITEMM em jaguariúna.</li>
+                </ul>
+            </div>
+
+            <div class="grid-item dois">
+                <h3>Cursos</h3> <br>
+                <ul>
+                    <li>Pacote Office 2016 (110 horas) - Fundação Bradesco <br> </li>
+                    <li>IA para seu novo emprego: Do currículo à entrevista - Fundação Bradesco</li>
+                    <li>Assistente Administrativo no Serviço Público - IFRS</li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

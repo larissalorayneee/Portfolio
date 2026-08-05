@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larissa Lorayne | Skills</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ESTILOS ESPECÍFICOS PARA A PÁGINA DE SKILLS */
+        .skills-container {
+            padding: 120px 8% 50px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .skills-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .skills-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--dark-cerulean);
+        }
+
+        /* O MOSAICO DE AZULEJOS (GRID) */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .skill-card {
+            aspect-ratio: 1 / 1; /* Mantém o formato de azulejo quadrado */
+            background-color: var(--branco);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-radius: 4px; /* Bordas levemente arredondadas como azulejos reais */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            cursor: pointer;
+            border-bottom: 5px solid transparent;
+        }
+
+        /* Cores dinâmicas baseadas na sua paleta para cada "azulejo" */
+        .skill-card:nth-child(1) { background-color: #fdf4e3; border-color: var(--mustard); }
+        .skill-card:nth-child(2) { background-color: #fdf4e3; border-color: var(--dark-cerulean); }
+        .skill-card:nth-child(3) { background-color: #fdf4e3; border-color: var(--cg-red); }
+        .skill-card:nth-child(4) { background-color: #fdf4e3; border-color: var(--mustard); }
+
+        .skill-card i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            transition: 0.3s;
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Efeito de Hover: O Azulejo "pula" e destaca a cor */
+        .skill-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .skill-card:hover i {
+            transform: scale(1.2);
+            color: var(--dark-cerulean);
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">LARISSA<span>LORAYNE</span></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="skills.html" class="active">Skills</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="skills-container">
+        <div class="skills-header">
+            <span class="section-tag" style="color: var(--cg-red); font-weight: 700; letter-spacing: 2px;">MEU ARSENAL TÉCNICO</span>
+            <h1>Habilidades & Ferramentas</h1>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Tech: <br> HTML5, CSS3, JavaScript.</h3>
+            </div>
+
+            <div class="skill-card">
+                <h3>Creative: <br> Escrita Criativa, Design Web.</h3>
+            </div>
+
+            <div class="skill-card">
+                <h3>Tools: <br> Figma, Office 365, Adobe Lightroom.</h3>
+            </div>
+
+            <div class="skill-card">
+                <h3>Languages: <br> Inglês Básico</h3>
+            </div>
+            <div class="skill-card">
+                <h3>Gestão de Projetos</h3>
+            </div>
+
+            <div class="skill-card">
+                <h3>Proatividade</h3>
+            </div>
+
+            <div class="skill-card">
+                <h3>Adaptabilidade</h3>
+            </div>
+
+            <div class="skill-card">
+                <h3>Escuta Ativa</h3>
+            </div>
+            
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
