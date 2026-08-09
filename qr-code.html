@@ -3,60 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Gerador de QR Code</title>
-
-<link rel="stylesheet" href="css/qr-code.css">
+    <link rel="stylesheet" href="css/qr-code.css">
+</head>
+<body>
 
 <div class="desktop">
-
     <div class="window">
-
         <div class="title-bar">
-
             <span>📁 QR Code Generator.exe</span>
-
             <div class="window-buttons">
-                <button>-</button>
-                <button>□</button>
-                <button onclick="window.location.href='projetos.html'">X</button>
+                <button type="button">-</button>
+                <button type="button">□</button>
+                <button type="button" onclick="window.location.href='projetos.html'">X</button>
             </div>
-
         </div>
 
         <div class="container">
-
             <h1>Gerador de QR Code</h1>
-
             <p>Digite um texto ou link para gerar um QR Code.</p>
 
-            <input
-                type="text"
-                id="texto"
-                placeholder="Digite aqui..."
-            >
+            <input type="text" id="texto" placeholder="Digite aqui..." autocomplete="off">
 
-            <button id="gerar">
-                Gerar QR Code
-            </button>
+            <button type="button" id="gerar">Gerar QR Code</button>
 
             <div id="resultado">
-
-                <img
-                    id="qrCode"
-                    src=""
-                    alt="QR Code"
-                >
-
+                <img id="qrCode" src="" alt="QR Code">
             </div>
-
         </div>
-
     </div>
-
 </div>
 
 <script src="js/qr-code.js"></script>
-
 </body>
 </html>

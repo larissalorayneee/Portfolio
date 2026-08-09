@@ -68,7 +68,22 @@
     }
     .foto-perfil, .texto-bio { grid-column: auto; grid-row: auto; }
 }
-    </style>
+    
+@media (max-width: 1100px) {
+  .sobre-container { padding: 110px 6% 40px; }
+  .grid-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .foto-perfil { grid-row: span 2; }
+  .texto-bio { grid-column: span 1; }
+}
+@media (max-width: 650px) {
+  .sobre-container { padding: 90px 18px 30px; }
+  .grid-layout { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 14px; }
+  .grid-item { min-height: 180px; padding: 22px; }
+  .foto-perfil { height: 360px; grid-row: auto; }
+  .texto-bio { grid-column: auto; }
+  .texto-bio p, .grid-item li { line-height: 1.6; font-size: .92rem; }
+}
+</style>
 </head>
 <body>
 

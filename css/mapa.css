@@ -317,3 +317,11 @@ h1 {
     }
 
 }
+@media (max-width: 480px) {
+    body { padding: 16px; align-items: flex-start; }
+    .container { padding-top: 18px; }
+    h1 { font-size: 28px; line-height: 1.15; }
+    .card { margin-top: 25px; padding: 20px; }
+    #flag { max-width: 200px; max-height: 130px; }
+    #countryName { font-size: 23px; }
+}

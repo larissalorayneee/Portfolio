@@ -196,3 +196,51 @@ input:focus{
     border-bottom:2px solid #404040;
 
 }
+/* Responsividade */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.window {
+    max-width: 470px;
+    width: calc(100% - 32px);
+}
+
+#qrCode {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 16px;
+    }
+
+    .window {
+        width: 100%;
+    }
+
+    .container {
+        padding: 20px 16px;
+    }
+
+    h1 {
+        font-size: 21px;
+    }
+}
+
+@media (max-width: 360px) {
+    body {
+        padding: 8px;
+    }
+
+    .title-bar span {
+        font-size: 12px;
+    }
+
+    .window-buttons button {
+        width: 21px;
+        height: 20px;
+    }
+}

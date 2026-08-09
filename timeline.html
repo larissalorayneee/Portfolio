@@ -115,7 +115,22 @@
             .timeline-item::after { left: 23px; }
             .right { left: 0%; }
         }
-    </style>
+    
+@media (max-width: 900px) {
+  .timeline-container { padding: 105px 5% 40px; }
+}
+@media (max-width: 600px) {
+  .timeline-container { padding: 90px 16px 30px; }
+  .timeline-header { margin-bottom: 35px; }
+  .timeline-header h1 { font-size: 2.2rem; }
+  .timeline::after { left: 17px; }
+  .timeline-item, .right { width: 100%; left: 0; padding: 8px 0 8px 48px; text-align: left; }
+  .timeline-item::after, .right::after { left: 9px; right: auto; }
+  .content { padding: 18px; }
+  .content h3 { font-size: 1rem; }
+  .content p { font-size: .86rem; }
+}
+</style>
 </head>
 <body>
 
