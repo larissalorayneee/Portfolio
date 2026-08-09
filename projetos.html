@@ -8,6 +8,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        .mapa-card {
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #1d3557, #457b9d, #2a9d8f);
+    display: block;
+}
+
+.mapa-preview {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px;
+}
+
+.mapa-preview .globe {
+    font-size: 300px;
+    margin-bottom: 20px;
+
+    transition: transform 0.8s ease;
+}
+
+.mapa-card:hover .globe {
+    transform: scale(1.15) rotate(8deg);
+}
+
+.mapa-preview h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.mapa-preview p {
+    max-width: 400px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
         .projects-container {
             padding: 120px 8% 50px;
             background-color: var(--old-lace);
@@ -241,17 +285,43 @@
         </div>
 
         <div class="bento-grid">
-            <div class="project-card card-large">
-                <img src="assets/img.jpg" alt="Projeto 1">
-                <div class="project-overlay">
-                    <h3>Moodboard de Arte</h3>
-                    <p>Uma plataforma completa com React e Node.js.</p>
-                    <div class="project-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">API</span>
-                    </div>
-                </div>
-            </div>
+            <a href="mapa.html" class="project-card card-large mapa-card">
+
+    <div class="mapa-preview">
+
+        <div class="globe">🌍</div>
+
+        <h2>Mapa Mundi Explorer</h2>
+
+        <p>
+            Explore países e descubra informações
+            sobre capital, população, idiomas e moedas.
+        </p>
+
+    </div>
+
+
+    <div class="project-overlay">
+
+        <h3>🌍 Mapa Mundi Explorer</h3>
+
+        <p>
+            Explore países do mundo e descubra
+            informações sobre cada um deles.
+        </p>
+
+        <div class="project-tags">
+
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">API</span>
+
+        </div>
+
+    </div>
+
+</a>
 
             <div class="project-card card-wide card-container" id="card">
                 <div class="card-inner">
@@ -273,26 +343,55 @@
                 </div>
             </div>
 
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1000" alt="Projeto 3">
-                <div class="project-overlay">
-                    <h3>App de Clima</h3>
-                    <div class="project-tags">
-                        <span class="tag">JS</span>
-                        <span class="tag">API</span>
-                    </div>
-                </div>
-            </div>
+            <a href="qr-code.html" class="project-card">
 
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&q=80&w=1000" alt="Projeto 4">
-                <div class="project-overlay">
-                    <h3>Interface de Blog</h3>
-                    <div class="project-tags">
-                        <span class="tag">CSS Grid</span>
-                    </div>
-                </div>
-            </div>
+    <img src="assets/qr-code.png" alt="Gerador de QR Code">
+
+    <div class="project-overlay">
+
+        <h3>Gerador de QR Code</h3>
+
+        <p>
+            Projeto desenvolvido em HTML, CSS e JavaScript que gera QR Codes
+            instantaneamente a partir de qualquer texto ou link informado pelo usuário.
+        </p>
+
+        <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">API</span>
+            <span class="tag">Responsivo</span>
+        </div>
+
+    </div>
+
+</a>
+
+            <a href="calculadora-salario.html" class="project-card">
+
+    <img src="assets/calculadora-salario.png" alt="Calculadora de Salário">
+
+    <div class="project-overlay">
+
+        <h3>Calculadora de Salário</h3>
+
+        <p>
+            Calcula o salário bruto, o desconto estimado de INSS e o salário líquido
+            com base nas horas trabalhadas e no valor da hora.
+        </p>
+
+        <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">DOM</span>
+            <span class="tag">Cálculos</span>
+        </div>
+
+    </div>
+
+</a>
         </div>
     </main>
 

@@ -1,0 +1,71 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de Salário</title>
+
+<link rel="stylesheet" href="css/calculadora-salario.css">
+
+<div class="desktop">
+
+    <div class="window">
+
+        <div class="title-bar">
+
+            <span>💻 Calculadora de Salário.exe</span>
+
+            <div class="window-buttons">
+                <button>-</button>
+                <button>□</button>
+                <button onclick="window.location.href='projetos.html'">X</button>
+            </div>
+
+        </div>
+
+        <div class="container">
+
+            <h1>Calculadora de Salário</h1>
+
+            <p>Informe as horas trabalhadas e o valor por hora.</p>
+
+            <input
+                type="number"
+                id="horas"
+                placeholder="Horas trabalhadas"
+            >
+
+            <input
+                type="number"
+                id="valorHora"
+                placeholder="Valor da hora (R$)"
+            >
+
+            <button onclick="calcularSalario()">
+                Calcular
+            </button>
+
+            <div class="resultado">
+
+                <div class="card">
+                    <h3>Salário Bruto</h3>
+                    <span id="salarioBruto">R$ 0,00</span>
+                </div>
+
+                <div class="card">
+                    <h3>INSS</h3>
+                    <span id="inss">R$ 0,00</span>
+                </div>
+
+                <div class="card">
+                    <h3>Salário Líquido</h3>
+                    <span id="salarioLiquido">R$ 0,00</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/calculadora-salario.js"></script>
