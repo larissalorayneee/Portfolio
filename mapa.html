@@ -1,113 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Mapa Mundi Explorer</title>
-
     <link rel="stylesheet" href="css/mapa.css">
 </head>
-
 <body>
+<main class="container">
+    <h1>🌍 Mapa Mundi Explorer</h1>
+    <p class="subtitle">Pesquise um país e descubra informações sobre ele.</p>
 
-    <main class="container">
+    <div class="search">
+        <input type="text" id="countryInput" placeholder="Digite um país..." autocomplete="off">
+        <button id="searchBtn">Pesquisar</button>
+    </div>
 
-        <h1>🌍 Mapa Mundi Explorer</h1>
+    <p class="examples">
+        Exemplos: Brasil, Holanda, Japão, França, Estados Unidos...
+    </p>
 
-        <p class="subtitle">
-            Pesquise um país e descubra informações sobre ele.
-        </p>
-
-
-        <div class="search">
-
-            <input
-                type="text"
-                id="countryInput"
-                placeholder="Digite um país..."
-                autocomplete="off"
-            >
-
-            <button id="searchBtn">
-                Pesquisar
-            </button>
-
+    <section class="card">
+        <div class="flag-container">
+            <img id="flag" src="" alt="Bandeira do país">
+            <span id="countryFlagEmoji"></span>
         </div>
 
+        <div class="country-info">
+            <h2 id="countryName">Selecione um país</h2>
 
-        <p class="examples">
-            Exemplos: Brasil, Japão, França, Estados Unidos...
-        </p>
-
-
-        <section class="card">
-
-            <div class="flag-container">
-
-                <img
-                    id="flag"
-                    src=""
-                    alt="Bandeira do país"
-                >
-
+            <div class="info">
+                <p><strong>🏛️ Capital</strong><span id="capital">-</span></p>
+                <p><strong>🌎 Continente</strong><span id="continent">-</span></p>
+                <p><strong>🧭 Sub-região</strong><span id="subregion">-</span></p>
+                <p><strong>👥 População</strong><span id="population">-</span></p>
+                <p><strong>🏙️ Maior cidade</strong><span id="largestCity">-</span></p>
+                <p><strong>📐 Área</strong><span id="area">-</span></p>
+                <p><strong>👤 Densidade populacional</strong><span id="density">-</span></p>
+                <p><strong>🗣️ Idiomas</strong><span id="language">-</span></p>
+                <p><strong>💰 Moeda</strong><span id="currency">-</span></p>
+                <p><strong>📞 Código telefônico</strong><span id="callingCode">-</span></p>
+                <p><strong>🕐 Fuso horário</strong><span id="timezone">-</span></p>
+                <p><strong>📍 Coordenadas</strong><span id="coordinates">-</span></p>
+                <p><strong>🌐 Domínio de internet</strong><span id="domain">-</span></p>
+                <p><strong>🆔 Códigos ISO</strong><span id="isoCodes">-</span></p>
+                <p><strong>🗺️ Fronteiras terrestres</strong><span id="borders">-</span></p>
             </div>
+        </div>
+    </section>
 
+    <section id="geographyInfo" class="geography-info" hidden>
+        <h2 id="geographyTitle"></h2>
+        <p class="geo-type" id="geographyType"></p>
+        <p id="geographyDescription"></p>
+        <p id="geographyParent"></p>
+        <p id="geographyMembers"></p>
+    </section>
 
-            <div class="country-info">
+    <p id="message" class="message"></p>
+</main>
 
-                <h2 id="countryName">
-                    Selecione um país
-                </h2>
-
-
-                <div class="info">
-
-                    <p>
-                        <strong>🏛️ Capital</strong>
-                        <span id="capital">-</span>
-                    </p>
-
-
-                    <p>
-                        <strong>🌎 Continente</strong>
-                        <span id="continent">-</span>
-                    </p>
-
-
-                    <p>
-                        <strong>👥 População</strong>
-                        <span id="population">-</span>
-                    </p>
-
-
-                    <p>
-                        <strong>🗣️ Idioma</strong>
-                        <span id="language">-</span>
-                    </p>
-
-
-                    <p>
-                        <strong>💰 Moeda</strong>
-                        <span id="currency">-</span>
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <p id="message" class="message"></p>
-
-    </main>
-
-
-    <script src="js/mapa.js"></script>
-
+<script src="js/mapa.js"></script>
 </body>
-
 </html>
