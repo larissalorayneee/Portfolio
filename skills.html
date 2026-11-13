@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Larissa Lorayne | Skills</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* ESTILOS ESPECÍFICOS PARA A PÁGINA DE SKILLS */
         .skills-container {
             padding: 120px 8% 50px;
             min-height: 100vh;
@@ -28,7 +30,7 @@
             color: var(--dark-cerulean);
         }
 
-        /* O MOSAICO DE AZULEJOS (GRID) */
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -38,26 +40,41 @@
         }
 
         .skill-card {
-            aspect-ratio: 1 / 1; /* Mantém o formato de azulejo quadrado */
+            aspect-ratio: 1 / 1;
             background-color: var(--branco);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            border-radius: 4px; /* Bordas levemente arredondadas como azulejos reais */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             cursor: pointer;
             border-bottom: 5px solid transparent;
         }
 
-        /* Cores dinâmicas baseadas na sua paleta para cada "azulejo" */
-        .skill-card:nth-child(1) { background-color: #fdf4e3; border-color: var(--mustard); }
-        .skill-card:nth-child(2) { background-color: #fdf4e3; border-color: var(--dark-cerulean); }
-        .skill-card:nth-child(3) { background-color: #fdf4e3; border-color: var(--cg-red); }
-        .skill-card:nth-child(4) { background-color: #fdf4e3; border-color: var(--mustard); }
+
+        .skill-card:nth-child(1) {
+            background-color: #fdf4e3;
+            border-color: var(--mustard);
+        }
+
+        .skill-card:nth-child(2) {
+            background-color: #fdf4e3;
+            border-color: var(--dark-cerulean);
+        }
+
+        .skill-card:nth-child(3) {
+            background-color: #fdf4e3;
+            border-color: var(--cg-red);
+        }
+
+        .skill-card:nth-child(4) {
+            background-color: #fdf4e3;
+            border-color: var(--mustard);
+        }
 
         .skill-card i {
             font-size: 3rem;
@@ -72,10 +89,10 @@
             letter-spacing: 1px;
         }
 
-        /* Efeito de Hover: O Azulejo "pula" e destaca a cor */
+
         .skill-card:hover {
             transform: translateY(-10px) rotate(2deg);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .skill-card:hover i {
@@ -83,40 +100,80 @@
             color: var(--dark-cerulean);
         }
 
-        /* Responsividade */
+
         @media (max-width: 600px) {
-            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
-    
-@media (max-width: 900px) {
-  .skills-container { padding: 105px 5% 40px; }
-  .skills-header { margin-bottom: 35px; }
-  .skills-header h1 { font-size: clamp(2rem, 6vw, 3rem); }
-  .skills-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-}
-@media (max-width: 650px) {
-  .skills-container { padding: 90px 16px 30px; }
-  .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .skill-card { min-width: 0; padding: 14px; aspect-ratio: auto; min-height: 155px; }
-  .skill-card h3 { font-size: .82rem; line-height: 1.35; text-align: center; }
-}
-@media (max-width: 380px) {
-  .skills-grid { grid-template-columns: 1fr; }
-  .skill-card { min-height: 120px; }
-}
-</style>
+
+        @media (max-width: 900px) {
+            .skills-container {
+                padding: 105px 5% 40px;
+            }
+
+            .skills-header {
+                margin-bottom: 35px;
+            }
+
+            .skills-header h1 {
+                font-size: clamp(2rem, 6vw, 3rem);
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .skills-container {
+                padding: 90px 16px 30px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .skill-card {
+                min-width: 0;
+                padding: 14px;
+                aspect-ratio: auto;
+                min-height: 155px;
+            }
+
+            .skill-card h3 {
+                font-size: .82rem;
+                line-height: 1.35;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-card {
+                min-height: 120px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">LARISSA<span>LORAYNE</span></div>
-            <ul>
+    <header class="site-header">
+        <nav class="site-nav" aria-label="Navegação principal">
+            <a class="logo" href="index.html">LARISSA<span>LORAYNE</span></a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+            <ul id="site-menu" class="site-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="skills.html" class="active">Skills</a></li>
                 <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="timeline.html">Formação</a></li>
                 <li><a href="contato.html">Contato</a></li>
             </ul>
         </nav>
@@ -124,13 +181,14 @@
 
     <main class="skills-container">
         <div class="skills-header">
-            <span class="section-tag" style="color: var(--cg-red); font-weight: 700; letter-spacing: 2px;">MEU ARSENAL TÉCNICO</span>
+            <span class="section-tag" style="color: var(--cg-red); font-weight: 700; letter-spacing: 2px;">MEU ARSENAL
+                TÉCNICO</span>
             <h1>Habilidades & Ferramentas</h1>
         </div>
 
         <div class="skills-grid">
             <div class="skill-card">
-                <h3>Tech: <br> HTML5, CSS3, JavaScript.</h3>
+                <h3>Tech: <br> HTML5, CSS3, JavaScript (intermediário).</h3>
             </div>
 
             <div class="skill-card">
@@ -138,31 +196,34 @@
             </div>
 
             <div class="skill-card">
-                <h3>Tools: <br> Figma, Office 365, Adobe Lightroom.</h3>
+                <h3>Tools: <br> Excel e Word (intermediário), PowerPoint (básico), Canva e Photoshop (básico).</h3>
             </div>
 
             <div class="skill-card">
-                <h3>Languages: <br> Inglês Básico</h3>
+                <h3>Languages: Inglês<br><br> Listening e Reading intermediários; Speaking básico a intermediário;
+                    Writing básico.</h3>
             </div>
             <div class="skill-card">
-                <h3>Gestão de Projetos</h3>
+                <h3>Java (iniciante), MySQL (básico) e PHP (básico).</h3>
             </div>
 
             <div class="skill-card">
-                <h3>Proatividade</h3>
+                <h3>Proatividade <br> Organização </h3>
             </div>
 
             <div class="skill-card">
-                <h3>Adaptabilidade</h3>
+                <h3>Adaptabilidade <br> Criatividade</h3>
             </div>
 
             <div class="skill-card">
-                <h3>Escuta Ativa</h3>
+                <h3>Trabalho em equipe e comunicação.</h3>
             </div>
-            
-            </div>
+
+        </div>
         </div>
     </main>
 
+    <script src="js/navigation.js" defer></script>
 </body>
+
 </html>

@@ -8,11 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* --- PÁGINA DE CONTATO --- */
+        
 
 .contact-container {
     padding: 150px 8% 50px;
-    background-color: #fdf4e3; /* Old Lace */
+    background-color: #fdf4e3; 
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -27,22 +27,21 @@
 .contact-header h1 {
     font-family: 'Playfair Display', serif;
     font-size: 3.5rem;
-    color: #134686; /* Cerulean */
+    color: #134686; 
 }
 
 .contact-header h1 span {
-    color: #ed3f27; /* Red */
+    color: #ed3f27; 
 }
 
 .contact-content {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* Coluna menor para info, maior para form */
+    grid-template-columns: 1fr 2fr; 
     gap: 50px;
     max-width: 1000px;
     width: 100%;
 }
 
-/* Blocos de Informação */
 .contact-info {
     display: flex;
     flex-direction: column;
@@ -55,7 +54,7 @@
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-    border-bottom: 4px solid #feb21a; /* Mustard */
+    border-bottom: 4px solid #feb21a; 
 }
 
 .info-box i {
@@ -71,7 +70,6 @@
     margin-bottom: 5px;
 }
 
-/* Formulário Estilizado */
 .contact-form {
     background: white;
     padding: 40px;
@@ -107,10 +105,9 @@
 .contact-form button {
     border: none;
     cursor: pointer;
-    align-self: flex-start; /* Botão não ocupa a largura toda */
+    align-self: flex-start; 
 }
 
-/* Responsividade */
 @media (max-width: 800px) {
     .contact-content { grid-template-columns: 1fr; }
     .input-group { grid-template-columns: 1fr; }
@@ -130,23 +127,18 @@
   .contact-form button { width: 100%; }
   .info-box { padding: 20px; }
 }
+.resume-box a{font-weight:700;color:#A65D47;text-decoration:none}.resume-box a:hover{text-decoration:underline}.resume-box p{font-size:.9rem;line-height:1.5;margin-bottom:10px}
 </style>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">LARISSA<span>LORAYNE</span></div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="timeline.html">Timeline</a></li>
-                <li><a href="contato.html" class="active">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header class="site-header">
+<nav class="site-nav" aria-label="Navegação principal">
+<a class="logo" href="index.html">LARISSA<span>LORAYNE</span></a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+<ul id="site-menu" class="site-menu">
+<li><a href="index.html">Home</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="skills.html">Skills</a></li><li><a href="projetos.html">Projetos</a></li><li><a href="timeline.html">Formação</a></li><li><a href="contato.html" class="active">Contato</a></li>
+</ul></nav></header>
 
     <main class="contact-container">
         <div class="contact-header">
@@ -165,7 +157,7 @@
                 <div class="info-box">
                     <i class="fa-brands fa-linkedin"></i>
                     <h3>LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/larissa-lorayne-santos-gomes-797abb3b3" target="_blank" style="text-decoration: none; color: inherit; font-weight: bold;">
+                    <a href="https://www.linkedin.com/in/larissa-ls-gomes" target="_blank" style="text-decoration: none; color: inherit; font-weight: bold;">
                     Ver meu Perfil
                     </a>
                 </div>
@@ -175,6 +167,11 @@
                     <a href="https://github.com/larissalorayneee" target="_blank" style="text-decoration: none; color: inherit; font-weight: bold;">
                     Ver meu Perfil
                     </a>
+                </div>
+<div class="info-box resume-box">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <h3>Currículo</h3>
+                    <a href="assets/curriculo-larissa.pdf" target="_blank" rel="noopener">Visualizar currículo em PDF</a>
                 </div>
             </div>
 
@@ -190,5 +187,6 @@
         </div>
     </main>
 
+<script src="js/navigation.js" defer></script>
 </body>
 </html>

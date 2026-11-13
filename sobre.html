@@ -1,147 +1,387 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Mim | Identidade</title>
+    <title>Sobre Mim | Larissa Lorayne</title>
 
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* ================================
-           LAYOUT DA PÁGINA SOBRE
-        ================================= */
+        :root {
+            --vinho: #6A040F;
+            --vermelho: #9D0208;
+            --amarelo: #E9B949;
+            --creme: #FFF8E7;
+            --texto: #252525;
+            --cinza: #6B6B6B;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
 
         .sobre-container {
-            padding: 120px 10% 50px;
-            min-height: 100vh;
+            max-width: 1250px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 125px 0 70px;
+        }
+
+        .sobre-intro {
+            margin-bottom: 35px;
+        }
+
+        .sobre-intro span {
+            color: var(--vermelho);
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .sobre-intro h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin: 10px 0;
+            color: var(--vinho);
+            font-weight: 800;
+        }
+
+        .sobre-intro p {
+            color: var(--cinza);
+            font-size: 1rem;
+            max-width: 600px;
+            line-height: 1.7;
         }
 
         .grid-layout {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 200px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-auto-rows: minmax(190px, auto);
             gap: 20px;
         }
 
         .grid-item {
-            background: var(--cor-branco);
-            padding: 30px;
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            transition: 0.3s;
+            background: #fff;
+            border: 1px solid rgba(106, 4, 15, .12);
+            border-radius: 18px;
+            padding: 27px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .04);
+            transition: transform .3s ease, box-shadow .3s ease;
+            min-width: 0;
         }
 
         .grid-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, .09);
         }
 
-        /* ================================
-           FOTO
-        ================================= */
-
-        .foto-perfil {
-            grid-row: span 2;
-            padding: 0;
-            overflow: hidden;
+        .grid-item h2,
+        .grid-item h3,
+        .grid-item h3 a {
+            color: var(--vinho);
+            margin: 0 0 15px;
+            line-height: 1.3;
+            font-size: 1.12rem;
+            text-decoration: none;
         }
 
-        .foto-perfil img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+.grid-item h3 a:hover {
+    color: var(--vermelho);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+
+        .grid-item p,
+        .grid-item li {
+            font-size: .91rem;
+            line-height: 1.75;
+            color: var(--texto);
         }
 
-        /* ================================
-           SOBRE MIM
-        ================================= */
+        .grid-item p {
+            margin: 0;
+        }
+
+        /* FOTO */
+
+        
+.foto-perfil {
+    grid-row: span 2;
+    padding: 0;
+    overflow: hidden;
+    min-height: 410px;
+    position: relative;
+    border: none;
+}
+
+.carrossel {
+    width: 100%;
+    height: 100%;
+    min-height: 410px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #eee;
+}
+
+.carrossel img {
+    width: 100%;
+    height: 100%;
+    min-height: 410px;
+    object-fit: cover;
+    display: block;
+    transition: opacity .3s ease;
+}
+
+.seta-carrossel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(30, 20, 20, .65);
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s ease;
+    z-index: 2;
+}
+
+.seta-carrossel:hover {
+    background: var(--vermelho);
+}
+
+.seta-carrossel.anterior {
+    left: 12px;
+}
+
+.seta-carrossel.proxima {
+    right: 12px;
+}
+
+.indicadores {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    z-index: 2;
+}
+
+.indicador {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background: rgba(255, 255, 255, .55);
+    cursor: pointer;
+    transition: .2s;
+}
+
+.indicador.ativo {
+    background: white;
+    transform: scale(1.35);
+}
+
+@media (max-width: 650px) {
+    .foto-perfil {
+        height: 390px;
+        min-height: 0;
+    }
+
+    .carrossel {
+        min-height: 0;
+        height: 100%;
+    }
+
+    .carrossel img {
+        min-height: 0;
+    }
+}
+
+
+        /* SOBRE MIM */
 
         .texto-bio {
             grid-column: span 2;
-            background-color: var(--dark-cerulean);
-            color: var(--old-lace);
+            grid-row: span 2;
+            background: var(--vinho);
+            color: var(--creme);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 38px;
+            border: none;
+        }
+
+        .texto-bio .etiqueta {
+            color: var(--amarelo);
+            text-transform: uppercase;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
         }
 
         .texto-bio h2 {
-            color: var(--mustard);
-            margin-bottom: 15px;
+            color: var(--amarelo);
+            font-size: 1.8rem;
+            margin-bottom: 18px;
         }
 
         .texto-bio p {
-            line-height: 1.5;
+            color: var(--creme);
+            font-size: .97rem;
+            line-height: 1.9;
         }
 
-        /* ================================
-           CORES DOS CARDS
-        ================================= */
+        /* HABILIDADES */
 
-        .um {
-            background-color: var(--cg-red);
-            color: var(--text-color);
+        .habilidades {
+            border-top: 4px solid var(--vermelho);
         }
 
-        .dois {
-            background-color: var(--mustard);
-            color: var(--text-color);
+        .lista-habilidades {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            padding: 0;
+            margin: 18px 0 0;
+            list-style: none;
         }
 
-        .três {
-            background-color: var(--old-lace);
-            border: 2px solid var(--dark-cerulean);
+        .lista-habilidades li {
+            background: #FFF0E9;
+            color: var(--vinho);
+            border-radius: 30px;
+            padding: 8px 13px;
+            font-size: .79rem;
+            font-weight: 600;
         }
 
-        /* ================================
-           COISAS QUE ME MOVEM
-        ================================= */
+        /* HOBBIES */
+
+        .hobbies {
+            background: #FFF8E7;
+            border: 1px solid rgba(233, 185, 73, .5);
+        }
+
+        /* CULTURA */
+
+        .cultura {
+            background: #FDF1EC;
+            border-left: 5px solid var(--vermelho);
+        }
+
+        .cultura .categoria {
+            display: block;
+            color: var(--vermelho);
+            text-transform: uppercase;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 9px;
+        }
+
+        /* COISAS QUE ME MOVEM */
 
         .movem {
-            background-color: var(--old-lace);
-            border: 2px solid var(--dark-cerulean);
+            background: var(--vinho);
+            color: white;
+            border: none;
+        }
+
+        .movem h3 {
+            color: var(--amarelo);
         }
 
         .movem-lista {
             list-style: none;
             padding: 0;
-            margin: 10px 0 0;
+            margin: 0;
         }
 
         .movem-lista li {
-            margin-bottom: 9px;
+            color: var(--creme);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
         }
 
-        .movem-lista span {
-            margin-right: 8px;
+        .movem-lista li::before {
+            content: "✳";
+            color: var(--amarelo);
+            font-size: 1rem;
+            flex-shrink: 0;
         }
 
-        /* ================================
-           INFORMAÇÕES
-        ================================= */
+        /* DETALHES */
 
-        .informacoes {
-            background-color: var(--old-lace);
-            border: 2px solid var(--dark-cerulean);
+        .detalhes {
+            background: #FFF8E7;
         }
 
-        .informacoes p {
-            margin: 7px 0;
-            line-height: 1.4;
+        .detalhes-lista {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
+        .detalhes-lista li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(106, 4, 15, .12);
+        }
 
-        /* ================================
-           RESPONSIVIDADE
-        ================================= */
+        .detalhes-lista li:last-child {
+            border-bottom: none;
+        }
 
-        @media (max-width: 1100px) {
+        /* FRASE FINAL */
 
-            .sobre-container {
-                padding: 110px 6% 40px;
-            }
+        .frase-final {
+            grid-column: span 3;
+            text-align: center;
+            background: transparent;
+            box-shadow: none;
+            border: none;
+            padding: 25px 10%;
+        }
 
+        .frase-final p {
+            color: var(--vinho);
+            font-size: 1.25rem;
+            font-weight: 500;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .frase-final span {
+            display: block;
+            color: var(--vermelho);
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        /* TABLET */
+
+        @media (max-width: 1000px) {
             .grid-layout {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
@@ -152,278 +392,333 @@
 
             .texto-bio {
                 grid-column: span 1;
+                grid-row: span 2;
             }
 
+            .frase-final {
+                grid-column: span 2;
+            }
         }
 
-        @media (max-width: 650px) {
+        /* CELULAR */
 
+        @media (max-width: 650px) {
             .sobre-container {
-                padding: 90px 18px 30px;
+                width: 92%;
+                padding: 100px 0 45px;
+            }
+
+            .sobre-intro {
+                margin-bottom: 25px;
+            }
+
+            .sobre-intro h1 {
+                font-size: 2.3rem;
             }
 
             .grid-layout {
                 grid-template-columns: 1fr;
-                grid-auto-rows: auto;
-                gap: 14px;
+                gap: 15px;
             }
 
             .grid-item {
-                min-height: 180px;
-                padding: 22px;
+                padding: 23px;
             }
 
             .foto-perfil {
-                height: 360px;
                 grid-row: auto;
+                min-height: 0;
+                height: 390px;
+            }
+
+            .foto-perfil img {
+                min-height: 0;
+                height: 100%;
             }
 
             .texto-bio {
                 grid-column: auto;
+                grid-row: auto;
+                padding: 27px;
             }
 
-            .texto-bio p,
-            .grid-item li {
-                line-height: 1.6;
-                font-size: .92rem;
+            .texto-bio h2 {
+                font-size: 1.55rem;
             }
-          }
+
+            .texto-bio p {
+                font-size: .9rem;
+            }
+
+            .frase-final {
+                grid-column: auto;
+                padding: 25px 10px;
+            }
+
+            .frase-final p {
+                font-size: 1.05rem;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- ================================
-         MENU
-    ================================= -->
+    <header class="site-header">
+        <nav class="site-nav" aria-label="Navegação principal">
 
-    <header>
-        <nav>
-
-            <div class="logo">
+            <a class="logo" href="index.html">
                 LARISSA<span>LORAYNE</span>
-            </div>
+            </a>
 
-            <ul>
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="site-menu">
+                Menu
+            </button>
+
+            <ul id="site-menu" class="site-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="sobre.html" class="active">Sobre</a></li>
                 <li><a href="skills.html">Skills</a></li>
                 <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="timeline.html">Formação</a></li>
                 <li><a href="contato.html">Contato</a></li>
             </ul>
 
         </nav>
     </header>
 
-
-    <!-- ================================
-         CONTEÚDO
-    ================================= -->
-
     <main class="sobre-container">
 
-        <div class="grid-layout">
+        <section class="sobre-intro">
+            <span>Um pouco sobre mim</span>
+            <h1>Entre ideias e descobertas.</h1>
+            <p>
+                Um pouco da minha trajetória, dos meus interesses
+                e das experiências que fazem parte de quem sou.
+            </p>
+        </section>
 
+        <section class="grid-layout">
 
-            <!-- FOTO -->
+           
+<div class="grid-item foto-perfil">
 
-            <div class="grid-item foto-perfil">
+    <div class="carrossel">
 
-                <img src="assets/ft4.png" alt="Minha Foto">
+        <img
+            id="fotoCarrossel"
+            src="assets/ft4.png"
+            alt="Fotografia de Larissa"
+        >
 
-            </div>
+        <button
+            class="seta-carrossel anterior"
+            onclick="mudarFoto(-1)"
+            aria-label="Foto anterior">
+            &#10094;
+        </button>
 
+        <button
+            class="seta-carrossel proxima"
+            onclick="mudarFoto(1)"
+            aria-label="Próxima foto">
+            &#10095;
+        </button>
 
-            <!-- SOBRE MIM -->
+        <div class="indicadores" id="indicadores"></div>
+
+    </div>
+
+</div>
+
 
             <div class="grid-item texto-bio">
-
+                <span class="etiqueta">Prazer, sou a Larissa</span>
                 <h2>Sobre Mim</h2>
 
                 <p>
-                    Poeta, fotógrafa e entusiasta do design, estou em constante
-                    transição entre a arte e a tecnologia. Atualmente, foco meu
-                    desenvolvimento em front-end (HTML, CSS e JavaScript) para
-                    dar vida a projetos que priorizam a estética e a experiência
-                    do usuário. Trago comigo a disciplina e a riqueza cultural
-                    da percussão afro, aplicando um olhar crítico e sensível em
-                    tudo o que construo. Busco oportunidades onde eu possa somar
-                    minha bagagem cultural ao desenvolvimento de interfaces
-                    criativas.
-                </p>
+                    Sou uma pessoa curiosa, criativa e movida pela vontade
+                    de conhecer coisas novas. Gosto de explorar diferentes
+                    formas de expressão, especialmente por meio da
+                    fotografia, da poesia, da música e do design.
 
+                    Minha formação técnica em Informática despertou meu
+                    interesse pela tecnologia e pelo desenvolvimento,
+                    mostrando como a criatividade também pode estar presente
+                    na construção de soluções.
+
+                    Fora desse universo, encontro no maracatu e nas
+                    manifestações culturais afro-brasileiras importantes
+                    espaços de aprendizado, identidade e conexão com a
+                    coletividade.
+
+                    Não me vejo limitada a uma única área ou interesse:
+                    gosto de experimentar, aprender com diferentes
+                    experiências e descobrir novas maneiras de enxergar
+                    o mundo. Acredito que são justamente essas vivências
+                    diversas que constroem quem sou e influenciam aquilo
+                    que quero criar.
+                </p>
             </div>
 
+            <div class="grid-item habilidades">
+                <h3>Habilidades interpessoais</h3>
 
-            <!-- HABILIDADES INTERPESSOAIS -->
+                <p>
+                    Características que procuro desenvolver nas minhas
+                    experiências pessoais, acadêmicas e profissionais.
+                </p>
 
-            <div class="grid-item um">
-
-                <h3>Habilidades Interpessoais</h3>
-
-                <ul>
-                    <li>Proatividade</li>
-                    <li>Interesse em aprender</li>
-                    <li>Fácil adaptabilidade</li>
-                    <li>Responsabilidade</li>
+                <ul class="lista-habilidades">
+                    <li>Comunicação</li>
                     <li>Trabalho em equipe</li>
-                    <li>Inovação</li>
+                    <li>Organização</li>
+                    <li>Adaptabilidade</li>
+                    <li>Responsabilidade</li>
+                    <li>Proatividade</li>
+                    <li>Resolução de problemas</li>
+                    <li>Aprendizado contínuo</li>
                 </ul>
-
             </div>
 
+            <div class="grid-item hobbies">
+                <h3>Interesses e hobbies</h3>
 
-            <!-- HOBBIES -->
+                <p> <br><br>
+                    Fotografia, poesia, literatura, música, dança,
+                    design e trabalhos manuais. <br><br> Gosto de conhecer
+                    outras culturas, explorar referências artísticas
+                    e encontrar inspiração nos detalhes do cotidiano.
+                </p>
+            </div>
 
-            <div class="grid-item um">
+            <div class="grid-item cultura">
+                <span class="categoria">Projeto: <br> Música e cultura</span>
+                <h3>
+                    <a href="https://www.instagram.com/maracatuca.grupo/" target="_blank">
+                        Maracatucá
+                    </a>
+                </h3>
 
-                <h3>Hobbies</h3>
+                <p> Grupo de Maracatu, manifestação afro-brasileira vinda de Pernambuco, 
+                    localizado em Campinas, afilhado da Nação de Maracatu Porto Rico. <br><br>
+                    O Maracatucá é uma parte importante da minha trajetória.
+                    A vivência no grupo me aproximou da percussão, dos
+                    ritmos afro-pernambucanos e da força da construção
+                    coletiva. É também um espaço de aprendizado, troca
+                    e expressão cultural.
+                </p>
+            </div>
+
+            <div class="grid-item cultura">
+                <span class="categoria">Projeto: <br> Referência cultural</span>
+                <h3>
+                    <a href="https://nacaomaracatuportorico.com.br/" target="_blank">
+                        Nação de Maracatu Porto Rico
+                    </a>
+
+                </h3>
 
                 <p>
-                    Gosto de fotografia, poesia, música, dança, design e
-                    trabalhos manuais. Também tenho interesse por manifestações
-                    culturais afro-brasileiras e por transformar experiências
-                    artísticas em novas formas de criação.
+                    Minha aproximação com a Nação Porto Rico amplia
+                    meu interesse pela história e pelas tradições do
+                    maracatu. É uma referência importante para compreender
+                    a riqueza dos ritmos, dos símbolos e dos saberes
+                    que atravessam essa manifestação cultural.
                 </p>
-
             </div>
 
-
-            <!-- MARACATUCÁ -->
-
-            <div class="grid-item um">
-
-                <h3>Maracatucá</h3>
+            <div class="grid-item cultura">
+                <span class="categoria">Projeto: <br> Experiência e aprendizado</span>
+                <h3>
+                    <a href="https://www.instagram.com/coletivodemusicaafroif/" target="_blank">
+                        Coletivo de Música Afro IF
+                    </a>
+                </h3>
 
                 <p>
-                    O Maracatucá é parte importante da minha trajetória cultural
-                    e musical. A participação no grupo me aproximou da percussão,
-                    da dança, da coletividade e das tradições afro-brasileiras,
-                    contribuindo também para minha disciplina e criatividade.
+                    Projeto de extensão do IFSP Campus Hortolândia
+                    dedicado ao ensino e à vivência de ritmos e instrumentos
+                    da cultura afro-brasileira, como maracatu, ijexá,
+                    samba, samba-reggae, baião e xote. Uma experiência
+                    que reúne música, formação cultural e atividades
+                    com a comunidade.
                 </p>
-
             </div>
 
-
-            <!-- NAÇÃO DE MARACATU PORTO RICO -->
-
-            <div class="grid-item dois">
-
-                <h3>Nação de Maracatu Porto Rico</h3>
+            <div class="grid-item cultura">
+                <span class="categoria">Vivência: <br> Expressão e escrita</span>
+                <h3>
+                    <a href="https://linktr.ee/paradapoetica" target="_blank">
+                        Parada Poética
+                    </a>
+                </h3>
 
                 <p>
-                    Minha relação com o maracatu também representa uma forma de
-                    conexão com a cultura, com a música e com a ancestralidade.
-                    A vivência com os ritmos e instrumentos amplia minha forma
-                    de enxergar arte, comunidade e identidade.
+                    A poesia é uma das formas que encontro para organizar
+                    pensamentos e transformar experiências em palavras.
+                    Gosto da escrita que provoca reflexão, transmite
+                    sentimentos e permite diferentes interpretações.
                 </p>
-
             </div>
 
-
-            <!-- COLETIVO DE MÚSICA AFRO IF -->
-
-            <div class="grid-item um">
-
-                <h3>Coletivo de Música Afro IF</h3>
-
-                <p>
-                    O Coletivo de Música Afro IF é um projeto de extensão do
-                    IFSP Campus Hortolândia que ensina ritmos e instrumentos da
-                    cultura afro-brasileira, como maracatu, ijexá, samba,
-                    samba-reggae, baião e xote. Além dos ensaios e do aprendizado
-                    musical, o grupo realiza apresentações e oficinas para a
-                    comunidade.
-                </p>
-
-            </div>
-
-
-            <!-- PARADA POÉTICA -->
-
-            <div class="grid-item dois">
-
-                <h3>Parada Poética</h3>
-
-                <p>
-                    A poesia é uma das formas que encontro para transformar
-                    pensamentos, experiências e sentimentos em palavras.
-                    A escrita também faz parte da minha maneira de observar
-                    o mundo e construir novas perspectivas.
-                </p>
-
-            </div>
-
-
-            <!-- DIALOGUE -->
-
-            <div class="grid-item um">
-
+            <div class="grid-item cultura">
+                <span class="categoria">Projeto: <br> Comunicação e criatividade</span>
                 <h3>Dialogue</h3>
 
                 <p>
-                    Um espaço de troca e expressão que representa meu interesse
-                    por comunicação, arte e construção coletiva. Acredito que
-                    diferentes experiências e pontos de vista podem gerar novas
-                    ideias e possibilidades.
+                    Um espaço de troca e expressão que representa meu
+                    interesse pela comunicação, pela arte e pelas
+                    diferentes perspectivas. Acredito que ouvir,
+                    compartilhar ideias e construir coletivamente
+                    também são formas de aprender.
                 </p>
-
             </div>
 
-
-            <!-- COISAS QUE ME MOVEM -->
-
             <div class="grid-item movem">
-
                 <h3>Coisas que me movem</h3>
 
                 <ul class="movem-lista">
-
-                    <li>
-                        A arte como forma de expressão e transformação
-                    </li>
-
-                    <li>
-                        Fotografar detalhes que contam histórias
-                    </li>
-
-                    <li>
-                        A música e a cultura afro-brasileira
-                    </li>
-
-                    <li>
-                        Experimentar a vida
-                    </li>
-
-                    <li>
-                        Conectar pessoas, ideias e propósitos
-                    </li>
-
+                    <li>A arte como forma de expressão e transformação.</li>
+                    <li>A música e a cultura afro-brasileira.</li>
+                    <li>Fotografar detalhes que contam histórias.</li>
+                    <li>Conhecer lugares, culturas e perspectivas diferentes.</li>
+                    <li>Aprender, experimentar e criar coisas novas.</li>
+                    <li>Conectar pessoas, ideias e experiências.</li>
                 </ul>
-
             </div>
 
+            <div class="grid-item detalhes">
+                <h3>Pequenos detalhes</h3>
 
-            <!-- INFORMAÇÕES -->
-
-            <div class="grid-item informacoes">
-
-                <h3>Detalhes</h3>
-
-                <ul>
-                    <li>Música é o que me move</li>
-                    <li>Escrever organiza meus pensamentos</li>
-                    <li>Me atraio por coisas bonitas</li>
-                    <li>Novos conhecimentos me encantam</li>
-                    <li>A saturação da natureza me preenche</li>
+                <ul class="detalhes-lista">
+                    <li>Escrever me ajuda a organizar pensamentos.</li>
+                    <li>A música está presente em muitos momentos da minha vida.</li>
+                    <li>Tenho interesse por literatura de diferentes países.</li>
+                    <li>Gosto de trabalhos manuais e processos criativos.</li>
+                    <li>Encontro inspiração na natureza e nas manifestações culturais.</li>
                 </ul>
-
             </div>
 
-        </div>
+            <div class="grid-item frase-final">
+                <span>✳</span>
+
+                <p>
+                    "Não quero me limitar ao que já conheço.
+                    Quero continuar descobrindo, experimentando
+                    e construindo novas versões de mim."
+                </p>
+            </div>
+
+        </section>
 
     </main>
+
+    <script src="js/navigation.js" defer></script>
 
 </body>
 </html>

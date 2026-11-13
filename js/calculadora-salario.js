@@ -1,65 +1,36 @@
-function calcularSalario(){
+const formSalario = document.getElementById("formSalario");
+const diasUteisMes = 22;
 
-    const horas = Number(document.getElementById("horas").value);
+formSalario.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-    const valorHora = Number(document.getElementById("valorHora").value);
+    const horasDia = Number(document.getElementById("horasDia").value);
+    const salarioMensal = Number(document.getElementById("salarioMensal").value);
+    const mensagemErro = document.getElementById("mensagemErro");
+    const horasMensaisOutput = document.getElementById("horasMensais");
+    const valorHoraOutput = document.getElementById("valorHora");
 
-    if(horas <= 0 || valorHora <= 0){
+    mensagemErro.textContent = "";
 
-        alert("Preencha os campos corretamente.");
-
+    if (!Number.isFinite(horasDia) || horasDia <= 0 || horasDia > 24) {
+        mensagemErro.textContent = "Informe uma jornada diária entre 0,1 e 24 horas.";
         return;
-
     }
 
-    const salarioBruto = horas * valorHora;
-
-    let porcentagemINSS = 0;
-
-    if(salarioBruto <= 1518){
-
-        porcentagemINSS = 0.075;
-
+    if (!Number.isFinite(salarioMensal) || salarioMensal <= 0) {
+        mensagemErro.textContent = "Informe um salário mensal maior que zero.";
+        return;
     }
 
-    else if(salarioBruto <= 2793.88){
+    const horasMensais = horasDia * diasUteisMes;
+    const valorHora = salarioMensal / horasMensais;
 
-        porcentagemINSS = 0.09;
+    horasMensaisOutput.textContent =
+        horasMensais.toLocaleString("pt-BR", { maximumFractionDigits: 2 }) + " h";
 
-    }
-
-    else if(salarioBruto <= 4190.83){
-
-        porcentagemINSS = 0.12;
-
-    }
-
-    else{
-
-        porcentagemINSS = 0.14;
-
-    }
-
-    const desconto = salarioBruto * porcentagemINSS;
-
-    const salarioLiquido = salarioBruto - desconto;
-
-    document.getElementById("salarioBruto").innerHTML =
-        salarioBruto.toLocaleString("pt-BR",{
-            style:"currency",
-            currency:"BRL"
+    valorHoraOutput.textContent =
+        valorHora.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
         });
-
-    document.getElementById("inss").innerHTML =
-        desconto.toLocaleString("pt-BR",{
-            style:"currency",
-            currency:"BRL"
-        });
-
-    document.getElementById("salarioLiquido").innerHTML =
-        salarioLiquido.toLocaleString("pt-BR",{
-            style:"currency",
-            currency:"BRL"
-        });
-
-}
+});

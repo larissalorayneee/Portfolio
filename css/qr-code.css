@@ -80,7 +80,6 @@ body{
     border-right:2px solid #404040;
     border-bottom:2px solid #404040;
 
-
 }
 
 .container{
@@ -196,7 +195,7 @@ input:focus{
     border-bottom:2px solid #404040;
 
 }
-/* Responsividade */
+
 html, body {
     width: 100%;
     overflow-x: hidden;
@@ -244,3 +243,21 @@ html, body {
         height: 20px;
     }
 }
+
+@media (max-width: 520px) {
+    .title-bar {
+        gap: 8px;
+    }
+
+    .title-bar > span:first-child {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .window-buttons {
+        flex-shrink: 0;
+    }
+}
+

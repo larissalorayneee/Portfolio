@@ -27,7 +27,7 @@
             color: var(--dark-cerulean);
         }
 
-        /* A LINHA CENTRAL */
+        
         .timeline {
             position: relative;
             max-width: 800px;
@@ -45,7 +45,7 @@
             margin-left: -1px;
         }
 
-        /* CONTAINER DOS ITENS */
+        
         .timeline-item {
             padding: 10px 40px;
             position: relative;
@@ -53,7 +53,7 @@
             width: 50%;
         }
 
-        /* Círculos na linha central */
+        
         .timeline-item::after {
             content: '';
             position: absolute;
@@ -67,13 +67,13 @@
             z-index: 1;
         }
 
-        /* Alinhamento Esquerda e Direita */
+        
         .left { left: 0; text-align: right; }
         .right { left: 50%; text-align: left; }
 
         .right::after { left: -8px; }
 
-        /* O "AZULEJO" DE CONTEÚDO */
+        
         .content {
             padding: 20px 30px;
             background-color: white;
@@ -108,7 +108,7 @@
             line-height: 1.5;
         }
 
-        /* Responsividade para Celular */
+        
         @media screen and (max-width: 600px) {
             .timeline::after { left: 31px; }
             .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left; }
@@ -134,19 +134,13 @@
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">LARISSA<span>LORAYNE</span></div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="timeline.html" class="active">Timeline</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header class="site-header">
+<nav class="site-nav" aria-label="Navegação principal">
+<a class="logo" href="index.html">LARISSA<span>LORAYNE</span></a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+<ul id="site-menu" class="site-menu">
+<li><a href="index.html">Home</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="skills.html">Skills</a></li><li><a href="projetos.html">Projetos</a></li><li><a href="timeline.html" class="active">Formação</a></li><li><a href="contato.html">Contato</a></li>
+</ul></nav></header>
 
     <main class="timeline-container">
         <div class="timeline-header">
@@ -155,39 +149,13 @@
         </div>
 
         <div class="timeline">
-            <div class="timeline-item left">
-                <div class="content">
-                    <span class="date">2026 - Presente</span>
-                    <h3>Jovem Aprendiz Flex</h3>
-                    <p> Alimentador de Linha de Produção na FLEXTRONICS INTERNATIONAL TECNOLOGIA LTDA pela empresa ITEMM em Jaguariúna.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item right">
-                <div class="content">
-                    <span class="date">2023 - 2025</span>
-                    <h3>Cursada no IFSP HTO</h3>
-                    <p>Formada no Ensino Médio com  Técnico em Informática pelo Instituto Federal de Hortolândia.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item left">
-                <div class="content">
-                    <span class="date">2019 - 2022</span>
-                    <h3>Estudante do E.E. Profª Leila Mara avelino</h3>
-                    <p>Formada no Ensino Fundamental II do 6° ao 9° Ano em Sumaré </p>
-                </div>
-            </div>
-
-            <div class="timeline-item right">
-                <div class="content">
-                    <span class="date">2013 - 2018</span>
-                    <h3>Estudante do E.E.E.I Prof° Rubens OScar Guelli</h3>
-                    <p>Formada no Ensino Fundamnetal I do 2° ao 5° Ano em Sumaré.</p>
-                </div>
-            </div>
-        </div>
+<div class="timeline-item left"><div class="content"><span class="date">2026 – Atual</span><h3>Jovem Aprendiz | ITEMM – Flextronics</h3><p>Experiência em ambiente industrial, com atuação em processos de manufatura, testes funcionais, retrabalho e descarte de materiais. Participação em projeto de melhoria contínua com proposta de automação do lançamento e controle de scrap.</p></div></div>
+<div class="timeline-item right"><div class="content"><span class="date">2023 – 2025</span><h3>Ensino Médio Integrado ao Técnico em Informática</h3><p>Instituto Federal de São Paulo (IFSP), Campus Hortolândia. Formação com contato com desenvolvimento web, programação e fundamentos de tecnologia.</p></div></div>
+<div class="timeline-item left"><div class="content"><span class="date">Cursos complementares</span><h3>Fundação Bradesco</h3><p>Introdução à Administração (12h); Excel 2016 Básico (15h); Word 2016 Básico (9h); PowerPoint 2016 Básico (8h); Organização Pessoal (10h); Postura e Imagem Profissional (8h); Língua Portuguesa sem Complicações (20h); Fundamentos de TI: Hardware e Software (7h); Python Básico (18h); Introdução ao Scratch (6h).</p></div></div>
+<div class="timeline-item right"><div class="content"><span class="date">2023 – Atual</span><h3>Coletivo de Música Afro IF | Projeto de Extensão</h3><p>Participação em atividades culturais, ensaios, apresentações e oficinas para a comunidade no IFSP Campus Hortolândia.</p></div></div>
+</div>
     </main>
 
+<script src="js/navigation.js" defer></script>
 </body>
 </html>

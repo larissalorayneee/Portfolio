@@ -26,19 +26,18 @@
     align-items: center;
 
     text-align: center;
-
-    padding: 40px;
 }
 
 .mapa-preview .globe {
     font-size: 300px;
-    margin-bottom: 20px;
-
+    margin-bottom: 55px;
+    line-height: 0.9;
     transition: transform 0.8s ease;
+    flex-shrink: 0;
 }
 
 .mapa-card:hover .globe {
-    transform: scale(1.15) rotate(8deg);
+    transform: scale(1.08) rotate(8deg);
 }
 
 .mapa-preview h2 {
@@ -68,7 +67,7 @@
             color: var(--dark-cerulean);
         }
 
-        /* BENTO GRID SETUP */
+        
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -86,7 +85,7 @@
             cursor: pointer;
         }
 
-        /* Definindo tamanhos diferentes para os "azulejos" de projetos */
+        
         .card-large { grid-column: span 2; grid-row: span 2; }
         .card-wide { grid-column: span 2; }
         .card-tall { grid-row: span 1; }
@@ -98,7 +97,7 @@
             transition: transform 0.5s ease;
         }
 
-        /* Overlay com informações do projeto */
+        
         .project-overlay {
             position: absolute;
             bottom: 0;
@@ -111,7 +110,7 @@
             transition: transform 0.3s ease;
         }
 
-        /* Aplica o efeito hover original apenas nos cards que NÃO são o interativo */
+        
         .project-card:not(.card-container):hover .project-overlay {
             transform: translateY(0);
         }
@@ -139,19 +138,19 @@
             backdrop-filter: blur(5px);
         }
 
-        /* ========================================================== */
-        /* INTEGRAÇÃO DO CSS DO SEU CARTÃO INTERATIVO 3D        */
-        /* ========================================================== */
         
-        /* Área com perspectiva 3D adaptada para a Grid */
+        
+        
+        
+        
         .card-container {
             perspective: 1200px;
             background: transparent;
             box-shadow: none;
-            overflow: visible; /* Permite que o efeito 3D não seja cortado */
+            overflow: visible; 
         }
 
-        /* Elemento interno que realiza o giro */
+        
         .card-inner {
             width: 100%;
             height: 100%;
@@ -160,12 +159,12 @@
             transition: transform 0.8s ease;
         }
 
-        /* Classe acionada pelo JS */
+        
         .card-container.flip .card-inner {
             transform: rotateY(180deg);
         }
 
-        /* Faces do cartão */
+        
         .card-face {
             width: 100%;
             height: 100%;
@@ -182,14 +181,14 @@
             overflow: hidden;
             font-family: Arial, Helvetica, sans-serif;
 
-            /* CONFIGURAÇÃO CORRETA PARA NÃO PIXELAR */
+            
             background-image: url('assets/card.png');
             background-repeat: no-repeat;
-            background-size: cover; /* Faz a imagem cobrir o espaço mantendo a proporção e a nitidez */
-            background-position: center; /* Mantém o centro da imagem focado */
+            background-size: cover; 
+            background-position: center; 
         }
 
-        /* Frente */
+        
         .front {
             border: 1px solid rgba(255,255,255,0.2);
         }
@@ -198,7 +197,7 @@
             font-size: 2rem;
             margin-bottom: 10px;
             color:white;
-            text-shadow: 0 2px 4px rgb(69, 0, 0); /* Adicionado sombra para destacar o texto sobre o background */
+            text-shadow: 0 2px 4px rgb(69, 0, 0); 
         }
 
         .front p {
@@ -208,7 +207,7 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
         }
 
-        /* Efeito brilho */
+        
         .front::before,
         .back::before {
             content: "";
@@ -219,7 +218,7 @@
             pointer-events: none;
         }
 
-        /* Verso */
+        
         .back {
             transform: rotateY(180deg);
             border: 1px solid rgba(255,255,255,0.1);
@@ -242,7 +241,7 @@
             opacity: 0.95;
         }
 
-        /* Hover suave integrado ao mecanismo de rotação */
+        
         .card-container:hover .card-inner {
             transform: scale(1.03);
         }
@@ -251,7 +250,7 @@
             transform: rotateY(180deg) scale(1.03);
         }
 
-        /* Responsividade */
+        
         @media (max-width: 900px) {
             .bento-grid {
                 grid-template-columns: 1fr 1fr;
@@ -261,7 +260,7 @@
             .project-card { height: 300px; }
         }
     
-/* Ajustes responsivos da página de projetos */
+
 @media (max-width: 900px) {
   .projects-container { padding: 105px 5% 40px; }
   .projects-header h1 { font-size: clamp(2.1rem, 7vw, 3rem); }
@@ -269,7 +268,7 @@
   .card-large, .card-wide { grid-column: span 2; }
   .project-card { min-height: 280px; }
   .mapa-preview { padding: 25px; }
-  .mapa-preview .globe { font-size: clamp(120px, 25vw, 210px); line-height: .9; }
+  .mapa-preview .globe {font-size: clamp(120px, 25vw, 210px);line-height: .9;margin-bottom: 35px;}
   .project-overlay { padding: 22px; }
 }
 @media (max-width: 600px) {
@@ -277,7 +276,7 @@
   .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
   .card-large, .card-wide { grid-column: span 1; }
   .project-card { min-height: 300px; }
-  .mapa-preview .globe { font-size: 150px; }
+  .mapa-preview .globe {font-size: 150px;margin-bottom: 30px;}
   .mapa-preview h2 { font-size: 1.55rem; }
   .project-overlay { transform: translateY(0); background: linear-gradient(transparent, rgba(19,70,134,.95)); }
   .project-overlay p { font-size: .88rem; }
@@ -292,19 +291,13 @@
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">LARISSA<span>LORAYNE</span></div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="projetos.html" class="active">Projetos</a></li>
-                <li><a href="timeline.html">Timeline</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header class="site-header">
+<nav class="site-nav" aria-label="Navegação principal">
+<a class="logo" href="index.html">LARISSA<span>LORAYNE</span></a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+<ul id="site-menu" class="site-menu">
+<li><a href="index.html">Home</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="skills.html">Skills</a></li><li><a href="projetos.html" class="active">Projetos</a></li><li><a href="timeline.html">Formação</a></li><li><a href="contato.html">Contato</a></li>
+</ul></nav></header>
 
     <main class="projects-container">
         <div class="projects-header">
@@ -328,15 +321,7 @@
 
     </div>
 
-
     <div class="project-overlay">
-
-        <h3>🌍 Mapa Mundi Explorer</h3>
-
-        <p>
-            Explore países do mundo e descubra
-            informações sobre cada um deles.
-        </p>
 
         <div class="project-tags">
 
@@ -431,5 +416,6 @@
         });
     </script>
 
+<script src="js/navigation.js" defer></script>
 </body>
 </html>

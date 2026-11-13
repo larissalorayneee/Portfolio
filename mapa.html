@@ -1,65 +1,225 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa Mundi Explorer</title>
+    <meta name="theme-color" content="#1d3557">
+
+    <title>Mapa-múndi Explorer | Larissa Lorayne</title>
+
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mapa.css">
 </head>
-<body>
-<main class="container">
-    <h1>🌍 Mapa Mundi Explorer</h1>
-    <p class="subtitle">Pesquise um país e descubra informações sobre ele.</p>
 
-    <div class="search">
-        <input type="text" id="countryInput" placeholder="Digite um país..." autocomplete="off">
-        <button id="searchBtn">Pesquisar</button>
-    </div>
+<body class="map-page">
 
-    <p class="examples">
-        Exemplos: Brasil, Holanda, Japão, França, Estados Unidos...
-    </p>
+    <header class="site-header">
+        <nav class="site-nav" aria-label="Navegação principal">
 
-    <section class="card">
-        <div class="flag-container">
-            <img id="flag" src="" alt="Bandeira do país">
-            <span id="countryFlagEmoji"></span>
-        </div>
+            <a class="logo" href="index.html">
+                LARISSA<span>LORAYNE</span>
+            </a>
 
-        <div class="country-info">
-            <h2 id="countryName">Selecione um país</h2>
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="site-menu">
+                Menu
+            </button>
 
-            <div class="info">
-                <p><strong>🏛️ Capital</strong><span id="capital">-</span></p>
-                <p><strong>🌎 Continente</strong><span id="continent">-</span></p>
-                <p><strong>🧭 Sub-região</strong><span id="subregion">-</span></p>
-                <p><strong>👥 População</strong><span id="population">-</span></p>
-                <p><strong>🏙️ Maior cidade</strong><span id="largestCity">-</span></p>
-                <p><strong>📐 Área</strong><span id="area">-</span></p>
-                <p><strong>👤 Densidade populacional</strong><span id="density">-</span></p>
-                <p><strong>🗣️ Idiomas</strong><span id="language">-</span></p>
-                <p><strong>💰 Moeda</strong><span id="currency">-</span></p>
-                <p><strong>📞 Código telefônico</strong><span id="callingCode">-</span></p>
-                <p><strong>🕐 Fuso horário</strong><span id="timezone">-</span></p>
-                <p><strong>📍 Coordenadas</strong><span id="coordinates">-</span></p>
-                <p><strong>🌐 Domínio de internet</strong><span id="domain">-</span></p>
-                <p><strong>🆔 Códigos ISO</strong><span id="isoCodes">-</span></p>
-                <p><strong>🗺️ Fronteiras terrestres</strong><span id="borders">-</span></p>
+            <ul id="site-menu" class="site-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projetos.html" class="active">Projetos</a></li>
+                <li><a href="timeline.html">Formação</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <main class="map-container">
+
+        <section class="map-heading">
+
+            <p class="eyebrow">PROJETO INTERATIVO</p>
+
+            <h1>🌍 Mapa-múndi Explorer</h1>
+
+            <p class="map-subtitle">
+                Pesquise um país e descubra informações sobre ele.
+            </p>
+
+        </section>
+
+        <form class="search" id="countrySearch">
+
+            <input
+                type="search"
+                id="countryInput"
+                placeholder="Digite o nome de um país..."
+                autocomplete="off"
+                aria-label="Nome do país"
+            >
+
+            <button id="searchBtn" type="submit">
+                Pesquisar
+            </button>
+
+        </form>
+
+        <p class="examples">
+            Experimente: Brasil, Holanda, Japão, França ou Estados Unidos.
+        </p>
+
+        <p id="message" class="message" role="status" aria-live="polite">
+            Carregando informações dos países...
+        </p>
+
+        <!-- Resultado da pesquisa -->
+
+        <section class="country-card" id="countryCard" hidden>
+
+            <div class="country-header">
+
+                <div class="country-title">
+                    <h2 id="countryName"></h2>
+                    <p id="officialName"></p>
+                </div>
+
+                <img
+                    id="flag"
+                    class="country-flag"
+                    alt="Bandeira do país"
+                    hidden
+                >
+
             </div>
-        </div>
-    </section>
 
-    <section id="geographyInfo" class="geography-info" hidden>
-        <h2 id="geographyTitle"></h2>
-        <p class="geo-type" id="geographyType"></p>
-        <p id="geographyDescription"></p>
-        <p id="geographyParent"></p>
-        <p id="geographyMembers"></p>
-    </section>
+            <!-- Fotografia do país -->
 
-    <p id="message" class="message"></p>
-</main>
+            <div class="country-photo-container">
 
-<script src="js/mapa.js"></script>
+                <img
+                    id="countryPhoto"
+                    class="country-photo"
+                    alt=""
+                    hidden
+                >
+
+                <p id="photoMessage" class="photo-message">
+                    Buscando uma fotografia do país...
+                </p>
+
+                <span id="photoCaption" class="photo-caption"></span>
+
+            </div>
+
+            <!-- Informações -->
+
+            <div class="country-info">
+
+                <h3>Informações gerais</h3>
+
+                <div class="country-grid">
+
+                    <article class="info-item">
+                        <strong>🏛️ Capital</strong>
+                        <span id="capital"></span>
+                    </article>
+
+                    <article class="info-item">
+                        <strong>🌎 Continente</strong>
+                        <span id="continent"></span>
+                    </article>
+
+                    <article class="info-item">
+                        <strong>🧭 Região</strong>
+                        <span id="subregion"></span>
+                    </article>
+
+                    <article class="info-item">
+                        <strong>👥 População</strong>
+                        <span id="population"></span>
+                    </article>
+
+                    <article class="info-item">
+                        <strong>📐 Área territorial</strong>
+                        <span id="area"></span>
+                    </article>
+
+                    <article class="info-item">
+                        <strong>👤 Densidade demográfica</strong>
+                        <span id="density"></span>
+                    </article>
+
+                    <article class="info-item">
+                        <strong>🗣️ Idiomas</strong>
+                        <span id="language"></span>
+                    </article>
+
+                    <article class="info-item">
+                        <strong>💰 Moeda</strong>
+                        <span id="currency"></span>
+                    </article>
+
+                    <article class="info-item">
+                        <strong>📞 Código telefônico</strong>
+                        <span id="callingCode"></span>
+                    </article>
+
+                    <article class="info-item">
+                        <strong>🕐 Fusos horários</strong>
+                        <span id="timezone"></span>
+                    </article>
+
+                    <article class="info-item">
+                        <strong>📍 Coordenadas</strong>
+                        <span id="coordinates"></span>
+                    </article>
+
+                    <article class="info-item">
+                        <strong>🌐 Domínio de internet</strong>
+                        <span id="domain"></span>
+                    </article>
+
+                    <article class="info-item">
+                        <strong>🆔 Código ISO</strong>
+                        <span id="isoCodes"></span>
+                    </article>
+
+                    <article class="info-item">
+                        <strong>🗺️ Países vizinhos</strong>
+                        <span id="borders"></span>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Regiões que não são países independentes -->
+
+        <section id="geographyInfo" class="geography-info" hidden>
+
+            <h2 id="geographyTitle"></h2>
+
+            <p id="geographyType"></p>
+
+            <p id="geographyDescription"></p>
+
+            <p id="geographyParent"></p>
+
+        </section>
+
+    </main>
+
+    <script src="js/navigation.js" defer></script>
+    <script src="js/mapa.js" defer></script>
+
 </body>
 </html>

@@ -3,49 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#d4d0c8">
     <title>Calculadora de Salário</title>
     <link rel="stylesheet" href="css/calculadora-salario.css">
 </head>
 <body>
-
-<div class="desktop">
-    <div class="window">
-        <div class="title-bar">
-            <span>💻 Calculadora de Salário.exe</span>
-            <div class="window-buttons">
-                <button type="button">-</button>
-                <button type="button">□</button>
-                <button type="button" onclick="window.location.href='projetos.html'">X</button>
-            </div>
-        </div>
-
-        <div class="container">
-            <h1>Calculadora de Salário</h1>
-            <p>Informe as horas trabalhadas e o valor por hora.</p>
-
-            <input type="number" id="horas" placeholder="Horas trabalhadas" inputmode="decimal">
-            <input type="number" id="valorHora" placeholder="Valor da hora (R$)" inputmode="decimal">
-
-            <button type="button" onclick="calcularSalario()">Calcular</button>
-
-            <div class="resultado">
-                <div class="card">
-                    <h3>Salário Bruto</h3>
-                    <span id="salarioBruto">R$ 0,00</span>
-                </div>
-                <div class="card">
-                    <h3>INSS</h3>
-                    <span id="inss">R$ 0,00</span>
-                </div>
-                <div class="card">
-                    <h3>Salário Líquido</h3>
-                    <span id="salarioLiquido">R$ 0,00</span>
+    <main class="desktop">
+        <section class="window" aria-labelledby="tituloCalculadora">
+            <div class="title-bar">
+                <span>💻 Calculadora de Salário.exe</span>
+                <div class="window-buttons">
+                    <button type="button" aria-label="Minimizar" disabled>−</button>
+                    <button type="button" aria-label="Maximizar" disabled>□</button>
+                    <button type="button" aria-label="Fechar" onclick="window.location.href='projetos.html'">X</button>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<script src="js/calculadora-salario.js"></script>
+            <div class="container">
+                <h1 id="tituloCalculadora">Calculadora de Salário</h1>
+                <p class="intro">Descubra quanto vale sua hora de trabalho com base no salário mensal.</p>
+                <form id="formSalario">
+                    <label for="horasDia">Horas trabalhadas por dia</label>
+                    <input type="number" id="horasDia" placeholder="Ex.: 8" min="0.1" max="24" step="0.1" required>
+                    <label for="salarioMensal">Salário mensal (R$)</label>
+                    <input type="number" id="salarioMensal" placeholder="Ex.: 2500,00" min="0.01" step="0.01" required>
+                    <button type="submit" class="calculate-button">Calcular valor da hora</button>
+                </form>
+                <p class="nota-calculo">Estimativa considerando 22 dias úteis por mês. Você pode alterar esse número no código.</p>
+                <section class="resultado" aria-live="polite">
+                    <div class="card">
+                        <h2>Horas trabalhadas no mês</h2>
+                        <output id="horasMensais">0 h</output>
+                    </div>
+                    <div class="card destaque">
+                        <h2>Valor da sua hora</h2>
+                        <output id="valorHora">R$ 0,00</output>
+                    </div>
+                </section>
+                <p id="mensagemErro" class="mensagem-erro" role="alert"></p>
+            </div>
+        </section>
+    </main>
+    <script src="js/calculadora-salario.js" defer></script>
 </body>
 </html>
